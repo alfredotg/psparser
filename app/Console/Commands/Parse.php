@@ -73,14 +73,26 @@ class Parse extends Command
         $match = new Match($data);
         $match->save();
         $this->info(sprintf("Save new match #%s", $match->id)); 
+
         $opponents = [];
+        $players = [];
+        $teams = [];
         foreach($data['opponents'] as $opponent_data)
         {
             $opponent = $this->_saveOpponent($opponent_data, $match);
             if($opponent !== null)
                 $opponents[] = $opponent;
+
+            if($opponent instanceof Player)
+                $players[] = $opponent->id;
+            else if($opponent instanceof Team)
+                $teams[] = $opponent->id;
+
         }
-        assert(count($opponents) == 2);
+        assert(count($opponents) > 1);
+
+        $match->teams()->sync(array_unique($teams));
+        $match->players()->sync(array_unique($players));
 
         $league = $this->_saveLeague($data['league']);
         assert($match->league_id == $league->id);
@@ -99,11 +111,9 @@ class Parse extends Command
         {                                                      
             case 'Player':
                 $player = Player::firstOrCreate(['id' => $data['id']], $data);
-                $match->players()->attach($player);
                 return $player;
             case 'Team':
                 $team = Team::firstOrCreate(['id' => $data['id']], $data);
-                $match->teams()->attach($team);
                 return $team;
         }
     }

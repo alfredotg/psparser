@@ -31,7 +31,7 @@ class ParserTest extends TestCase
         $this->assertEquals($league->id, 4243);
 
         $player = $match->players[0];
-        $this->assertEquals('coolio', $player->name);
+        $this->assertEquals('BLAST Rising', $player->name);
 
         $team = $match->teams[0];
         $this->assertEquals('Singularity', $team->name);

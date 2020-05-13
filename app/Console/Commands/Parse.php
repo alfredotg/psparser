@@ -45,13 +45,13 @@ class Parse extends Command
     public function handle()
     {
         $api = App::make(Api::class);
-        $matches  = $api->matches()->query('sort', 'begin_at');
+        $matches  = $api->csgoMatchesUpcoming()->query('sort', 'begin_at');
 
         $last_match = Match::orderBy('begin_at', 'DESC')->first();
         if($last_match !== null)
         {
             $begin = $last_match->begin_at->sub(new \DateInterval('PT1S'));
-            $end = now();
+            $end = now()->add(new \DateInterval('P100Y'));
             $matches->query('range[begin_at]', $begin->format('Y-m-d\TH:i:s\Z').','.$end->format('Y-m-d\TH:i:s\Z'));
         }
 
@@ -89,7 +89,6 @@ class Parse extends Command
                 $teams[] = $opponent->id;
 
         }
-        assert(count($opponents) > 1);
 
         $match->teams()->sync(array_unique($teams));
         $match->players()->sync(array_unique($players));

@@ -62,33 +62,41 @@
         "type": "Team"
       },
       {
-        "opponent": {
-            "birth_year": null,
-            "birthday": null,
-            "current_team": {
-                "acronym": null,
-                "id": 126952,
-                "image_url": "https://cdn.pandascore.co/images/team/image/126952/144px_salamander.png",
-                "location": null,
-                "modified_at": "2020-02-07T09:01:29Z",
-                "name": "Salamander Gaming",
-                "slug": "salamander-gaming"
-            },
-            "current_videogame": {
-                "id": 3,
-                "name": "CS:GO",
-                "slug": "cs-go"
-            },
-            "first_name": null,
-            "hometown": null,
-            "id": 26393,
-            "image_url": null,
-            "last_name": null,
-            "name": "coolio",
-            "nationality": null,
-            "role": null,
-            "slug": "coolio"
-        },             
+        "opponent": 
+        {
+          "id": 4382,
+          "image_url": "https://cdn.pandascore.co/images/league/image/4382/600px-Blast_Rising_logo.png",
+          "modified_at": "2020-05-03T14:34:25Z",
+          "name": "BLAST Rising",
+          "first_name": "First Name",
+          "last_nanme": "Last Name",
+          "series": [
+            {
+              "begin_at": "2020-05-03T22:00:00Z",
+              "description": null,
+              "end_at": "2020-05-22T22:00:00Z",
+              "full_name": "Season 1 2020",
+              "id": 2673,
+              "league_id": 4382,
+              "modified_at": "2020-05-03T14:35:44Z",
+              "name": null,
+              "season": "1",
+              "slug": "cs-go-blast-rising-1-2020",
+              "tier": "b",
+              "winner_id": null,
+              "winner_type": null,
+              "year": 2020
+            }
+          ],
+          "slug": "cs-go-blast-rising",
+          "url": null,
+          "videogame": {
+            "current_version": null,
+            "id": 3,
+            "name": "CS:GO",
+            "slug": "cs-go"
+          }
+        },
         "type": "Player"
       }
     ],

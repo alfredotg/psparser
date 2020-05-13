@@ -48,4 +48,9 @@ class Match extends Model
     {
         return $this->morphedByMany('App\Player', 'opponents');
     }
+
+    function league()
+    {
+        return $this->belongsTo('App\League');
+    }    
 }

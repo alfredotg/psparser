@@ -14,7 +14,7 @@ class PsMatches extends Migration
     public function up()
     {
         Schema::create('matches', function(Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigInteger('id')->primary();
             $table->char('name');
             $table->dateTime('begin_at')->nullable();
             $table->dateTime('end_at')->nullable();

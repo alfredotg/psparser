@@ -14,7 +14,7 @@ class Leagues extends Migration
     public function up()
     {
         Schema::create('leagues', function(Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigInteger('id')->primary();
             $table->char('name');
             $table->char('url')->nullable();
         });

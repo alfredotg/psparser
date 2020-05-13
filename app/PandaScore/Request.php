@@ -42,19 +42,23 @@ class Request
             $this->per_page = 100;
         if($this->page === null)
             $this->page = 1;
-        while(true) {
+        while(true) 
+        {
             $data = $this->get();
             if(!is_array($data))
-            {
-                yield $data;
-                break;
-            }
+                throw new \Exception("Response is not array");
             foreach($data as $row)
                 yield $row;
             if(count($data) < $this->per_page)
                 break;
             $this->page++;
         }
+    }
+
+    function query($param, $value)
+    {
+        $this->query[$param] = $value;
+        return $this;
     }
 
     function get()
@@ -70,6 +74,7 @@ class Request
         foreach(range(0, self::MAX_TRIES - 1) as $try) 
         {
             $res = Http::timeout(10)->get($url);
+            $rlimit = $res->header('X-Rate-Limit-Remaining');
             if($res->status() == 200)
                 break;
             $rlimit = $res->header('X-Rate-Limit-Remaining');

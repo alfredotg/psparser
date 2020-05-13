@@ -63,15 +63,33 @@
       },
       {
         "opponent": {
-          "acronym": null,
-          "id": 126462,
-          "image_url": "https://cdn.pandascore.co/images/team/image/126462/9863.png",
-          "location": "JO",
-          "modified_at": "2020-05-03T14:48:33Z",
-          "name": "FATE",
-          "slug": "fate"
-        },
-        "type": "Team"
+            "birth_year": null,
+            "birthday": null,
+            "current_team": {
+                "acronym": null,
+                "id": 126952,
+                "image_url": "https://cdn.pandascore.co/images/team/image/126952/144px_salamander.png",
+                "location": null,
+                "modified_at": "2020-02-07T09:01:29Z",
+                "name": "Salamander Gaming",
+                "slug": "salamander-gaming"
+            },
+            "current_videogame": {
+                "id": 3,
+                "name": "CS:GO",
+                "slug": "cs-go"
+            },
+            "first_name": null,
+            "hometown": null,
+            "id": 26393,
+            "image_url": null,
+            "last_name": null,
+            "name": "coolio",
+            "nationality": null,
+            "role": null,
+            "slug": "coolio"
+        },             
+        "type": "Player"
       }
     ],
     "original_scheduled_at": "2020-05-05T16:00:00Z",

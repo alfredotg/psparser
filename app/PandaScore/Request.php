@@ -4,9 +4,13 @@ namespace App\PandaScore;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\App;
 
 class Request
 {
+    const EXCESS_OF_LIMIT_SLEEP_SECONDS = 5;
+    const MAX_TRIES = 3;
+    
     private $paht;
     private $query;
     private $page = null;
@@ -62,8 +66,21 @@ class Request
             $query['page'] = $this->page;
 
         $url = $this->path . '?' . http_build_query($query); 
-        $res = Http::get($url);
-        $res->throw();
+        $res = null;
+        foreach(range(0, self::MAX_TRIES - 1) as $try) 
+        {
+            $res = Http::timeout(10)->get($url);
+            if($res->status() == 200)
+                break;
+            $rlimit = $res->header('X-Rate-Limit-Remaining');
+            if($rlimit === '0')
+            {
+                App::make(Sleeper::class)->sleep(self::EXCESS_OF_LIMIT_SLEEP_SECONDS + $try);
+                continue;
+            }
+            $res->throw();
+            break;
+        }
         return $res->json();
     }
 }

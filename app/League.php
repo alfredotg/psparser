@@ -13,4 +13,5 @@ class League extends Model
     ];
 
     public $timestamps = false;
+    public $incrementing = false;
 }

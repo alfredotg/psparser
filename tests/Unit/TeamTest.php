@@ -17,6 +17,7 @@ class TeamTest extends TestCase
 
         $obj = new Team($data);
         $obj->save();
+        $this->assertTrue($obj->id > 0);
 
         $obj = Team::find($data['id']);
         $this->assertTrue($obj !== null);

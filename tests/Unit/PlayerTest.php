@@ -17,6 +17,7 @@ class PlayerTest extends TestCase
 
         $obj = new Player($data);
         $obj->save();
+        $this->assertTrue($obj->id > 0);
 
         $obj = Player::find($data['id']);
         $this->assertTrue($obj !== null);

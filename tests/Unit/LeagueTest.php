@@ -17,6 +17,7 @@ class LeagueTest extends TestCase
 
         $obj = new League($data);
         $obj->save();
+        $this->assertTrue($obj->id > 0);
 
         $obj = League::find($data['id']);
         $this->assertTrue($obj !== null);

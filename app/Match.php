@@ -25,4 +25,27 @@ class Match extends Model
     ];
 
     public $timestamps = false;
+    public $incrementing = false;
+
+    function opponents(): array
+    {
+        $opponents = [];
+        foreach($this->teams as $opponent)
+            $opponents[] = $opponent;
+        foreach($this->players as $opponent)
+        {
+            $opponents[] = $opponent;
+        }
+        return $opponents;
+    }
+
+    function teams()
+    {
+        return $this->morphedByMany('App\Team', 'opponents');
+    }
+
+    function players()
+    {
+        return $this->morphedByMany('App\Player', 'opponents');
+    }
 }

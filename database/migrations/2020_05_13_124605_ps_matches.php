@@ -21,10 +21,7 @@ class PsMatches extends Migration
             $table->tinyInteger('forfeit')->nullable();
             $table->bigInteger('game_advantage')->nullable();
             $table->bigInteger('league_id')->nullable();
-            if(env('DB_CONNECTION') == 'sqlite')
-                $table->char('match_type');
-            else
-                $table->set('match_type', ["best_of", "custom", "first_to", "ow_best_of"]);
+            $table->enum('match_type', ['best_of', 'custom', 'first_to', 'ow_best_of']);
         });
     }
 

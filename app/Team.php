@@ -13,4 +13,5 @@ class Team extends Model
     ];
 
     public $timestamps = false;
+    public $incrementing = false;
 }

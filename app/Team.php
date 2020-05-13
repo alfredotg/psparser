@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class League extends Model
+class Team extends Model
 {
     protected $fillable = [
         'id',
         'name',
-        'url',
+        'acronym',
     ];
 
     public $timestamps = false;

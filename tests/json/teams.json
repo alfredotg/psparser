@@ -1,0 +1,17 @@
+[
+  {
+    "acronym": "Some",
+    "current_videogame": {
+      "id": 3,
+      "name": "CS:GO",
+      "slug": "cs-go"
+    },
+    "id": 126958,
+    "image_url": null,
+    "location": null,
+    "modified_at": "2020-02-07T10:19:25Z",
+    "name": "We Are Orgless",
+    "players": [],
+    "slug": "we-are-orgless"
+  }
+]

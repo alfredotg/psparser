@@ -8,9 +8,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Facade;
 use Tests\CreatesApplication;
 use Tests\MockApiData;
-use App\League;
+use App\Team;
 
-class LeagueTest extends TestCase
+class TeamTest extends TestCase
 {
     use CreatesApplication;
     use MockApiData;
@@ -18,15 +18,15 @@ class LeagueTest extends TestCase
 
     function testImport()
     {
-        $json = $this->apiData('leagues.json');
+        $json = $this->apiData('teams.json');
         $data = $json[0];
 
-        $obj = new League($data);
+        $obj = new Team($data);
         $obj->save();
 
-        $obj = League::find($data['id']);
+        $obj = Team::find($data['id']);
         $this->assertTrue($obj !== null);
         $this->assertEquals($obj->name, $data['name']);
-        $this->assertEquals($obj->url, $data['url']);
+        $this->assertEquals($obj->acronym, $data['acronym']);
     }
 }

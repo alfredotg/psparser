@@ -16,8 +16,8 @@ class PsMatches extends Migration
         Schema::create('matches', function(Blueprint $table) {
             $table->bigInteger('id');
             $table->char('name');
-            $table->dateTimeTz('begin_at')->nullable();
-            $table->dateTimeTz('end_at')->nullable();
+            $table->dateTime('begin_at')->nullable();
+            $table->dateTime('end_at')->nullable();
             $table->tinyInteger('forfeit')->nullable();
             $table->bigInteger('game_advantage')->nullable();
             $table->bigInteger('league_id')->nullable();

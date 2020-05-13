@@ -1,0 +1,34 @@
+[
+  {
+    "id": 4383,
+    "image_url": null,
+    "modified_at": "2020-05-04T05:58:27Z",
+    "name": "Asia Spring Invitational",
+    "series": [
+      {
+        "begin_at": "2020-05-04T06:00:00Z",
+        "description": null,
+        "end_at": null,
+        "full_name": "2020",
+        "id": 2674,
+        "league_id": 4383,
+        "modified_at": "2020-05-04T05:58:42Z",
+        "name": null,
+        "season": null,
+        "slug": "dota-2-asia-spring-invitational-2020",
+        "tier": null,
+        "winner_id": null,
+        "winner_type": null,
+        "year": 2020
+      }
+    ],
+    "slug": "dota-2-asia-spring-invitational",
+    "url": null,
+    "videogame": {
+      "current_version": null,
+      "id": 4,
+      "name": "Dota 2",
+      "slug": "dota-2"
+    }
+  }
+]

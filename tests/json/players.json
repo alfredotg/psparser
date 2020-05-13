@@ -1,0 +1,29 @@
+[
+  {
+    "birth_year": null,
+    "birthday": null,
+    "current_team": {
+      "acronym": null,
+      "id": 126952,
+      "image_url": "https://cdn.pandascore.co/images/team/image/126952/144px_salamander.png",
+      "location": null,
+      "modified_at": "2020-02-07T09:01:29Z",
+      "name": "Salamander Gaming",
+      "slug": "salamander-gaming"
+    },
+    "current_videogame": {
+      "id": 3,
+      "name": "CS:GO",
+      "slug": "cs-go"
+    },
+    "first_name": null,
+    "hometown": null,
+    "id": 26393,
+    "image_url": null,
+    "last_name": null,
+    "name": "coolio",
+    "nationality": null,
+    "role": null,
+    "slug": "coolio"
+  }
+]

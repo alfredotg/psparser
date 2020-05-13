@@ -3,19 +3,12 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\TestCase;
-use Illuminate\Support\Facades\App;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Facade;
-use Illuminate\Support\Facades\Http;
-use Tests\CreatesApplication;
-use Tests\MockApiData;
+use Tests\ModelImportTest;
 use App\Match;
 
 class MatchTest extends TestCase
 {
-    use CreatesApplication;
-    use MockApiData;
-    use RefreshDatabase;
+    use ModelImportTest;
 
     function testImport()
     {

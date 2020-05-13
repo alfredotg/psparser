@@ -4,23 +4,24 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\TestCase;
 use Tests\ModelImportTest;
-use App\League;
+use App\Player;
 
-class LeagueTest extends TestCase
+class PlayerTest extends TestCase
 {
     use ModelImportTest;
 
     function testImport()
     {
-        $json = $this->apiData('leagues.json');
+        $json = $this->apiData('players.json');
         $data = $json[0];
 
-        $obj = new League($data);
+        $obj = new Player($data);
         $obj->save();
 
-        $obj = League::find($data['id']);
+        $obj = Player::find($data['id']);
         $this->assertTrue($obj !== null);
         $this->assertEquals($obj->name, $data['name']);
-        $this->assertEquals($obj->url, $data['url']);
+        $this->assertEquals($obj->first_name, $data['first_name']);
+        $this->assertEquals($obj->last_name, $data['last_name']);
     }
 }

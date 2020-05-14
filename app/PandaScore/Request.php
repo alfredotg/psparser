@@ -55,7 +55,7 @@ class Request
         }
     }
 
-    function query($param, $value)
+    function query(string $param, string $value): Request
     {
         $this->query[$param] = $value;
         return $this;

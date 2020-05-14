@@ -52,7 +52,7 @@ class Parse extends Command
         {
             $begin = $last_match->begin_at->sub(new \DateInterval('PT1S'));
             $end = now()->add(new \DateInterval('P100Y'));
-            $matches->query('range[begin_at]', $begin->format('Y-m-d\TH:i:s\Z').','.$end->format('Y-m-d\TH:i:s\Z'));
+            $matches->query('range[begin_at]', $api->dateFormat($begin).','.$api->dateFormat($end));
         }
 
         foreach($matches->cursor() as $data)

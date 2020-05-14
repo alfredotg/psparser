@@ -12,6 +12,12 @@ class Api
         $this->token = config('pandascore.token');
     }
 
+    function dateFormat(\DateTime $date): string
+    {
+        $date->setTimeZone(new \DateTimeZone('Z'));
+        return $date->format('Y-m-d\TH:i:sT');
+    }
+
     /*
      * Mapping calls "mathesRunning(10)" to "matches/running/10"
      */

@@ -42,6 +42,9 @@ class ParserTest extends TestCase
         $match = new Match(['id' => 1, 'name' => "N0", 'match_type' => 'best_of', 'begin_at' => '2020-05-05T16:00:00']);
         $match->save();
 
+        $saved_tz = config('app.timezone');
+        config(['app.timezone' => '+4']);
+
         $req = null;
         Http::fake(function($request) use(&$req) {
             $req = $request;
@@ -51,6 +54,6 @@ class ParserTest extends TestCase
         $this->artisan('pandascore:parse');
 
         list($begin, $end) = explode(',', $req['range']['begin_at']);
-        $this->assertEquals($begin, '2020-05-05T15:59:59Z');
+        $this->assertEquals($begin, '2020-05-05T11:59:59Z'); // minus local tz offset and one second
     }
 }

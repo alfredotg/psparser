@@ -9,7 +9,7 @@ class DateWithTz
 {
     public function get($model, $key, $value, $attributes)
     {
-        return new DateTime($value);
+        return new DateTime($value, new DateTimeZone(config('app.timezone')));
     }
 
     /*

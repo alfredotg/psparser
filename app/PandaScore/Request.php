@@ -74,7 +74,6 @@ class Request
         foreach(range(0, self::MAX_TRIES - 1) as $try) 
         {
             $res = Http::timeout(10)->get($url);
-            $rlimit = $res->header('X-Rate-Limit-Remaining');
             if($res->status() == 200)
                 break;
             $rlimit = $res->header('X-Rate-Limit-Remaining');

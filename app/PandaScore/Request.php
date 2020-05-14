@@ -46,7 +46,7 @@ class Request
         {
             $data = $this->get();
             if(!is_array($data))
-                throw new \Exception("Response is not array");
+                throw new \Exception("Response is not an array");
             foreach($data as $row)
                 yield $row;
             if(count($data) < $this->per_page)

@@ -75,7 +75,7 @@ class PandaScoreApiTest extends TestCase
             return $sleeper; 
         });
         $api->some()->get();
-        $this->assertEquals($sleeper->seconds, ApiRequest::EXCESS_OF_LIMIT_SLEEP_SECONDS * 2 + 1); // sleep twice plus two tries 
+        $this->assertEquals($sleeper->seconds, ApiRequest::EXCESS_OF_LIMIT_SLEEP_SECONDS * 3); 
 
     } 
 

@@ -71,7 +71,7 @@ class Request
 
         $url = $this->path . '?' . http_build_query($query); 
         $res = null;
-        foreach(range(0, self::MAX_TRIES - 1) as $try) 
+        foreach(range(1, self::MAX_TRIES) as $try) 
         {
             $res = Http::timeout(10)->get($url);
             if($res->status() == 200)
@@ -79,7 +79,7 @@ class Request
             $rlimit = $res->header('X-Rate-Limit-Remaining');
             if($rlimit === '0')
             {
-                App::make(Sleeper::class)->sleep(self::EXCESS_OF_LIMIT_SLEEP_SECONDS + $try);
+                App::make(Sleeper::class)->sleep(self::EXCESS_OF_LIMIT_SLEEP_SECONDS*$try);
                 continue;
             }
             $res->throw();
